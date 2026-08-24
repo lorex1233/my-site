@@ -681,41 +681,36 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Enter') sendMessage();
     });
 
-    async function sendMessage() {
-        const text = userInput.value.trim();
-        if (!text) return;
+   async function sendMessage() {
+    const text = userInput.value.trim();
+    if (!text) return;
 
-        appendMessage(text, 'ai-user');
-        userInput.value = '';
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    appendMessage(text, 'ai-user');
+    userInput.value = '';
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
-        try {
-            const response = await fetch(''https://my-site-ten-flame.vercel.app/api/chat', {
-                try {
-    const response = await fetch('https://my-site-ten-flame.vercel.app/api/chat', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ message: text })
-    });
+    try {
+        const response = await fetch('https://my-site-ten-flame.vercel.app/api/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ message: text })
+        });
 
-            const data = await response.json();
-            const reply = data.choices && data.choices[0] 
-                ? data.choices[0].message.content 
-                : "Извините, не удалось получить ответ от сервера.";
-            
-            appendMessage(reply, 'ai-bot');
-        } catch (error) {
-            appendMessage("Ошибка соединения с сервером проверки.", 'ai-bot');
+        const data = await response.json();
+        
+        let reply = "Извините, не удалось получить ответ от сервера.";
+        
+        if (data.choices && data.choices[0] && data.choices[0].message) {
+            reply = data.choices[0].message.content;
+        } else if (data.error) {
+            reply = `Ошибка: ${data.error}`;
         }
-        messagesContainer.scrollTop = messagesContainer.scrollHeight;
-    }
 
-    function appendMessage(text, className) {
-        const msgDiv = document.createElement('div');
-        msgDiv.className = `ai-message ${className}`;
-        msgDiv.textContent = text;
-        messagesContainer.appendChild(msgDiv);
+        appendMessage(reply, 'ai-bot');
+    } catch (error) {
+        console.error(error);
+        appendMessage('Ошибка соединения с сервером.', 'ai-bot');
     }
-});
+}
