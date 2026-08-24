@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ГЛАВНАЯ СТРАНИЦА -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="logo">QUIZ AI</div>
+
+            <h1>
+                Учись умнее.<br>
+                Знай больше.
+            </h1>
+
+            <p>
+                Персональная AI-платформа для школьников.
+                Проверяй знания, находи слабые места
+                и учись в своём темпе.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="main-button"
+                    onclick="openRegistration()">
+                    Создать профиль →
+                </button>
+
+                <button
+                    class="secondary-button"
+                    onclick="goToTests()">
+                    Пройти тест
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- РЕГИСТРАЦИЯ -->
+
+    <div
+        class="registration-overlay"
+        id="registration">
+
+        <div class="registration-card">
+
+            <button
+                class="close-button"
+                onclick="closeRegistration()">
+                
+            </button>
+
+            <div class="logo small-logo">
+                QUIZ AI
+            </div>
+
+            <h2>Создай профиль</h2>
+<label for="studentName">Имя</label>
+
+<input
+    type="text"
+    id="studentName" 
+    name="studentName"
+    placeholder="Имя"
+    required>
+
+               
+
+
+            <label>Класс</label>
+
+            <select id="studentClass">
+
+                <option value="">
+                    Выбери класс
+                </option>
+
+                <option>7 класс</option>
+                <option>8 класс</option>
+                <option>9 класс</option>
+                <option>10 класс</option>
+                <option>11 класс</option>
+                <option>12 класс</option>
+
+            </select>
+
+            <label>Цель обучения</label>
+
+            <select id="studentGoal">
+
+                <option value="">
+                    Выбери цель
+                </option>
+
+                <option>
+                    Подготовка к экзамену
+                </option>
+
+                <option>
+                    Подготовка к олимпиаде
+                </option>
+
+                <option>
+                    Повторение темы
+                </option>
+
+                <option>
+                    Повысить оценки
+                </option>
+
+                <option>
+                    Проверить свои знания
+                </option>
+
+            </select>
+
+
+            <button
+                class="register-button"
+                onclick="createProfile()">
+
+                Создать профиль →
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ВЫБОР ТЕМЫ -->
+
+    <section
+        class="history-section"
+        id="tests">
+
+        <div class="section-header">
+
+            <div class="logo small-logo">
+                QUIZ AI
+            </div>
+
+            <h2>История</h2>
+
+            <p>
+                Выбери тему, которую хочешь изучить
+                и проверь свои знания.
+            </p>
+
+        </div>
+
+
+        <div class="topic-container">
+
+
+            <!-- ИСТОРИЯ КАЗАХСТАНА -->
+
+            <div
+                class="topic-card"
+                onclick="selectTopic('kazakhstan')">
+
+                <div class="topic-icon">
+                    🇰🇿
+                </div>
+
+                <div class="topic-info">
+
+                    <h3>
+                        История Казахстана
+                    </h3>
+
+                    <p>
+                        Проверь знания по истории
+                        Казахстана.
+                    </p>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <!-- ДРЕВНИЙ МИР -->
+
+            <div
+                class="topic-card"
+                onclick="selectTopic('ancient')">
+
+                <div class="topic-icon">
+                    🏛️
+                </div>
+
+                <div class="topic-info">
+
+                    <h3>
+                        Древний мир
+                    </h3>
+
+                    <p>
+                        Египет, Греция, Рим
+                        и древние цивилизации.
+                    </p>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <!-- СРЕДНИЕ ВЕКА -->
+
+            <div
+                class="topic-card"
+                onclick="selectTopic('middle')">
+
+                <div class="topic-icon">
+                    ⚔️
+                </div>
+
+                <div class="topic-info">
+
+                    <h3>
+                        Средние века
+                    </h3>
+
+                    <p>
+                        Королевства, империи
+                        и важные события.
+                    </p>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+
+            <!-- НОВЕЙШАЯ ИСТОРИЯ -->
+
+            <div
+                class="topic-card"
+                onclick="selectTopic('modern')">
+
+                <div class="topic-icon">
+                    🌍
+                </div>
+
+                <div class="topic-info">
+
+                    <h3>
+                        Новейшая история
+                    </h3>
+
+                    <p>
+                        Главные события XX
+                        и XXI веков.
+                    </p>
+
+                </div>
+
+                <span class="arrow">
+                    →
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ВОПРОСЫ -->
+
+    <section
+        class="quiz-section"
+        id="quiz">
+
+        <div class="quiz-container">
+
+
+            <div class="quiz-top">
+
+                <div>
+
+                    <div
+                        class="logo small-logo">
+                        QUIZ AI
+                    </div>
+
+                    <p
+                        class="quiz-topic"
+                        id="quiz-topic">
+                        ИСТОРИЯ
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ПРОГРЕСС -->
+
+            <div class="progress">
+
+                <div class="progress-info">
+
+                    <span id="question-number">
+                        Вопрос 1 из 5
+                    </span>
+
+                    <span id="score">
+                        0 баллов
+                    </span>
+
+                </div>
+
+
+                <div class="progress-bar">
+
+                    <div
+                        class="progress-fill"
+                        id="progress-fill">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ВОПРОС -->
+
+            <h2 id="question">
+                Выбери тему выше
+            </h2>
+
+
+            <!-- ОТВЕТЫ -->
+
+            <div id="answers"></div>
+
+
+            <!-- СЛЕДУЮЩИЙ ВОПРОС -->
+
+            <button
+                class="next-button"
+                id="next-button"
+                onclick="nextQuestion()">
+
+                Следующий вопрос →
+
+            </button>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ИИ Ассистент Виджет -->
+    <div id="ai-chat-widget">
+        <button id="ai-chat-toggle" aria-label="Открыть чат с ИИ">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </button>
+        
+        <div id="ai-chat-container" class="ai-hidden">
+            <div class="ai-chat-header">
+                <h3>ИИ Ассистент</h3>
+                <button id="ai-chat-close">&times;</button>
+            </div>
+            <div id="ai-chat-messages">
+                <div class="ai-message ai-bot">Привет! Чем я могу помочь тебе сегодня?</div>
+            </div>
+            <div class="ai-chat-input-area">
+                <input type="text" id="ai-user-input" placeholder="Введите сообщение...">
+                <button id="ai-send-btn">Отправить</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,763 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: #f8f6f1;
+    color: #17233c;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   ГЛАВНАЯ
+========================= */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 20% 20%, #eee9df 0, transparent 30%),
+        radial-gradient(circle at 80% 80%, #eee9df 0, transparent 30%),
+        #f8f6f1;
+
+    padding: 30px;
+}
+
+.hero-content {
+    max-width: 900px;
+}
+
+.logo {
+    color: #a47735;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(45px, 7vw, 78px);
+    line-height: 1.05;
+    margin-bottom: 25px;
+    color: #17233c;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 35px;
+    color: #707887;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+/* =========================
+   КНОПКИ
+========================= */
+
+.main-button,
+.secondary-button,
+.register-button,
+.next-button {
+    font-family: "Inter", sans-serif;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.main-button {
+    border: none;
+    background: #17233c;
+    color: white;
+    padding: 16px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.main-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(23, 35, 60, 0.2);
+}
+
+.secondary-button {
+    border: 1px solid #d7d1c6;
+    background: white;
+    color: #17233c;
+    padding: 16px 25px;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.secondary-button:hover {
+    background: #eeeae2;
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   РЕГИСТРАЦИЯ
+========================= */
+
+.registration-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(15, 23, 40, 0.55);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+.registration-overlay.active {
+    display: flex;
+}
+
+.registration-card {
+    width: 100%;
+    max-width: 500px;
+
+    background: white;
+    border-radius: 22px;
+
+    padding: 35px;
+
+    position: relative;
+
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+
+    animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+
+    border: none;
+    background: none;
+
+    font-size: 30px;
+    color: #777;
+
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #17233c;
+}
+
+.small-logo {
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.registration-card h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.registration-text {
+    color: #777f8c;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.registration-card label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 7px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.registration-card input,
+.registration-card select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #ddd8cf;
+    border-radius: 10px;
+
+    background: #faf9f6;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+
+    outline: none;
+}
+
+.registration-card input:focus,
+.registration-card select:focus {
+    border-color: #a47735;
+}
+
+.register-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 11px;
+
+    background: #17233c;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.register-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   ИСТОРИЯ
+========================= */
+
+.history-section {
+    min-height: 100vh;
+    padding: 70px 25px;
+
+    background: #f8f6f1;
+}
+
+.section-header {
+    max-width: 850px;
+    margin: 0 auto 40px;
+}
+
+.section-header h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    color: #737b88;
+    line-height: 1.6;
+}
+
+.topic-container {
+    max-width: 850px;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.topic-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: white;
+
+    border: 1px solid #e8e2d7;
+    border-radius: 18px;
+
+    padding: 20px;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    box-shadow: 0 5px 20px rgba(30, 25, 15, 0.04);
+}
+
+.topic-card:hover {
+    transform: translateX(7px);
+
+    border-color: #c5a15c;
+
+    box-shadow: 0 12px 30px rgba(30, 25, 15, 0.08);
+}
+
+.topic-icon {
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #f3ead9;
+
+    border-radius: 15px;
+
+    font-size: 28px;
+}
+
+.topic-info {
+    flex: 1;
+}
+
+.topic-info h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.topic-info p {
+    color: #7b8290;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.arrow {
+    font-size: 26px;
+    color: #a47735;
+}
+
+
+/* =========================
+   ТЕСТ
+========================= */
+
+.quiz-section {
+    min-height: 100vh;
+    padding: 50px 25px;
+
+    background: #f8f6f1;
+}
+
+.quiz-container {
+    max-width: 850px;
+    margin: auto;
+}
+
+.quiz-top {
+    margin-bottom: 30px;
+}
+
+.quiz-topic {
+    color: #a47735;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.progress {
+    margin-bottom: 35px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 10px;
+
+    color: #737b88;
+    font-size: 13px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 7px;
+
+    background: #e5dfd4;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+
+    background: #a47735;
+
+    border-radius: 20px;
+
+    transition: width 0.3s ease;
+}
+
+.quiz-container h2 {
+    font-family: "Playfair Display", serif;
+
+    font-size: 32px;
+    line-height: 1.4;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   ОТВЕТЫ
+========================= */
+
+#answers {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.answer-button {
+    width: 100%;
+
+    text-align: left;
+
+    padding: 17px;
+
+    border: 2px solid #e4dfd7;
+
+    background: white;
+
+    border-radius: 13px;
+
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.answer-button:hover {
+    border-color: #c4a05b;
+    background: #fffaf1;
+}
+
+.answer-button.selected {
+    border-color: #a47735;
+    background: #f8efdf;
+}
+
+.answer-button.correct {
+    border-color: #5d936b;
+    background: #e8f4eb;
+}
+
+.answer-button.wrong {
+    border-color: #bd6767;
+    background: #f8e8e8;
+}
+
+.answer-button:disabled {
+    cursor: default;
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+.next-button {
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 16px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #17233c;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.next-button:hover {
+    transform: translateY(-2px);
+}
+
+.next-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================
+   ИИ АССИСТЕНТ (ВИДЖЕТ)
+========================= */
+
+#ai-chat-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9999;
+    font-family: "Inter", sans-serif;
+}
+
+#ai-chat-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #17233c;
+    color: #a47735;
+    border: 2px solid #c5a15c;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(30, 25, 15, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+#ai-chat-toggle:hover {
+    transform: scale(1.08);
+    background: #233254;
+}
+
+#ai-chat-container {
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    width: 360px;
+    height: 480px;
+    background: #ffffff;
+    border: 1px solid #e8e2d7;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(30, 25, 15, 0.15);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#ai-chat-container.ai-hidden {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+}
+
+.ai-chat-header {
+    background: #17233c;
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ai-chat-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-family: "Playfair Display", serif;
+}
+
+#ai-chat-close {
+    background: none;
+    border: none;
+    color: #a47735;
+    font-size: 26px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#ai-chat-close:hover {
+    color: #ffffff;
+}
+
+#ai-chat-messages {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #faf9f6;
+}
+
+.ai-message {
+    padding: 11px 15px;
+    border-radius: 14px;
+    max-width: 85%;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ai-message.ai-bot {
+    background: #eeeae2;
+    color: #17233c;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+}
+
+.ai-message.ai-user {
+    background: #17233c;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+}
+
+.ai-chat-input-area {
+    padding: 12px 15px;
+    background: white;
+    border-top: 1px solid #e8e2d7;
+    display: flex;
+    gap: 8px;
+}
+
+#ai-user-input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid #ddd8cf;
+    border-radius: 10px;
+    outline: none;
+    font-size: 14px;
+    background: #faf9f6;
+    font-family: "Inter", sans-serif;
+}
+
+#ai-user-input:focus {
+    border-color: #a47735;
+}
+
+#ai-send-btn {
+    background: #17233c;
+    color: white;
+    border: none;
+    padding: 0 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s ease;
+}
+
+#ai-send-btn:hover {
+    background: #a47735;
+}
+
+
+/* =========================
+   АНИМАЦИЯ
+========================= */
+
+.topic-card,
+.quiz-container,
+.registration-card {
+    animation: appear 0.5s ease;
+}
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   ТЕЛЕФОН
+========================= */
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: auto;
+    }
+
+    .main-button,
+    .secondary-button {
+        width: 100%;
+    }
+
+    .section-header h2 {
+        font-size: 40px;
+    }
+
+    .topic-card {
+        padding: 15px;
+    }
+
+    .topic-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
+    }
+
+    .topic-info h3 {
+        font-size: 18px;
+    }
+
+    .topic-info p {
+        font-size: 12px;
+    }
+
+    .quiz-container h2 {
+        font-size: 26px;
+    }
+
+    .registration-card {
+        padding: 25px;
+    }
+
+    #ai-chat-container {
+        width: 300px;
+        height: 420px;
+        right: -10px;
+    }
+}
+```[cite: 5, 6]
+
+<ElicitationsGroup message="Что вы хотите сделать дальше?">
+<Elicitation label="Insert API key into script variable" query="Insert API key into script variable" query_intent="CLICKABLE_SUGGESTION" />
+<Elicitation label="Test chat widget script logic" query="Test chat widget script logic" query_intent="CLICKABLE_SUGGESTION" />
+<Elicitation label="Add markdown formatting support for AI responses" query="Add markdown formatting support for AI responses" query_intent="CLICKABLE_SUGGESTION" />
+</ElicitationsGroup>
