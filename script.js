@@ -673,15 +673,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     closeBtn.addEventListener('click', () => {
-        chatContainer.classList.add('ai-hidden');
-    });
+    chatContainer.classList.add('ai-hidden');
+});
 
-    sendBtn.addEventListener('click', sendMessage);
-    userInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') sendMessage();
-    });
+sendBtn.addEventListener('click', sendMessage);
+userInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
 
-   async function sendMessage() {
+async function sendMessage() {
     const text = userInput.value.trim();
     if (!text) return;
 
