@@ -690,23 +690,15 @@ document.addEventListener('DOMContentLoaded', () => {
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
 
         try {
-            const response = await fetch('https://api.openai.com/v1/chat/completions', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${API_KEY}`
-                },
-                body: JSON.stringify({
-                    model: "gpt-3.5-turbo",
-                    messages: [
-                        { 
-                            role: "system", 
-                            content: "Ты — полезный ИИ-ассистент на образовательной платформе Quiz AI для школьников. Помогай отвечать на вопросы по учебе кратко и понятно." 
-                        },
-                        { role: "user", content: text }
-                    ]
-                })
-            });
+            const response = await fetch(''https://my-site-ten-flame.vercel.app/api/chat', {
+                try {
+    const response = await fetch('https://my-site-ten-flame.vercel.app/api/chat', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ message: text })
+    });
 
             const data = await response.json();
             const reply = data.choices && data.choices[0] 
